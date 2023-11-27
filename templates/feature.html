@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Emotion Music Recommendation</title>
+
+    <link
+      type="text/css"
+      href="{{ url_for('static', filename='/css/style.css') }}"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- development purpose -->
+    <link rel="stylesheet" href="./../static/css/style.css" />
+    <!-- development purpose -->
+  </head>
+
+  <body>
+    <div id="body">
+      <div>
+        <h1>MISSON (Music by Expression)</h1>
+      </div>
+
+      <div>
+        <h2>Emotion Detector</h2>
+
+        <div>
+          <img
+            class="outer-shadow"
+            id="bg"
+            class="center img-fluid"
+            src="{{ url_for('video_feed') }}"
+          />
+        </div>
+      </div>
+
+      <div>
+        <h2>Song Recommendations</h2>
+      </div>
+
+      <div class="" id="ResultArea"></div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Constantly Update Table
+      setInterval(function () {
+        $.getJSON("/t", function (data) {
+          CreateHtmlTable(data);
+          console.log(data, "DATA");
+        });
+        return false;
+      }, 100);
+
+      function CreateHtmlTable(data) {
+        //Clear result div
+        $("#ResultArea").html("");
+        //Crate table html tag
+        var table = $(
+          "<table class = 'table table-auto' id=DynamicTable></table>"
+        ).appendTo("#ResultArea");
+        var rowHeader = $("<tr></tr>").appendTo(table);
+        $("<td></td>").text("Lagu").appendTo(rowHeader);
+        $("<td></td>").text("Artist").appendTo(rowHeader);
+        $("<td></td>").text("spotify_uri").appendTo(rowHeader);
+        //Get JSON data by calling action method in controller
+        $.each(data, function (i, value) {
+          //Create new row for each record
+          var row = $("<tr></tr>").appendTo(table);
+          $("<td></td>").text(value.Lagu).appendTo(row);
+          $("<td></td>").text(value.Artist).appendTo(row);
+          $("<td></td>")
+            .html(
+              "<a href='" +
+                value.spotify_uri +
+                "' target='_blank'>" +
+                value.spotify_uri +
+                "</a>"
+            )
+            .appendTo(row);
+        });
+      }
+    </script>
+  </body>
+</html>
