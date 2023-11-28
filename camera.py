@@ -1,18 +1,14 @@
-import numpy as np
 import cv2
-from PIL import Image
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, Flatten
-from tensorflow.keras.layers import Conv2D
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.layers import MaxPooling2D
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from pandastable import Table, TableModel
-from tensorflow.keras.preprocessing import image
+import numpy as np
+import pandas as pd
 import datetime
 from threading import Thread
-import time
-import pandas as pd
+from PIL import Image
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Conv2D
+from keras.layers import MaxPooling2D
+
 face_cascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 ds_factor=0.6
 
@@ -43,7 +39,7 @@ emotion_dict = {
 	3:"Bahagia",
 	4:"Netral",
 	5:"Sedih", 
-	6:"Bersemangat"} # 0:"Angry",3:"Happy",4:"Neutral",5:"Sad" #1:"Disgusted",2:"Fearful",6:"Surprised"
+	6:"Bersemangat"} 
 
 music_dist={
 	0:"songs/Marah.csv", 
@@ -52,7 +48,7 @@ music_dist={
 	3:"songs/Bahagia.csv",
 	4:"songs/Netral.csv",
 	5:"songs/Sedih.csv", 
-	6:"songs/Bersemangat.csv"} #{0:"songs/angry.csv",1:"songs/disgusted.csv ",2:"songs/fearful.csv",3:"songs/happy.csv",4:"songs/neutral.csv",5:"songs/sad.csv",6:"songs/surprised.csv"}
+	6:"songs/Bersemangat.csv"}
 
 global last_frame1                                    
 last_frame1 = np.zeros((480, 640, 3), dtype=np.uint8)
@@ -129,7 +125,7 @@ class VideoCamera(object):
 		gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 		face_rects=face_cascade.detectMultiScale(gray,1.3,5)
 		df1 = pd.read_csv(music_dist[show_text[0]])
-		df1 = df1[['Lagu','Artist','spotify_uri']] #[['Name','Album','Artist']]
+		df1 = df1[['Lagu','Artist','spotify_uri']]
 		df1 = df1.head(15)
 		for (x,y,w,h) in face_rects:
 			cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
@@ -139,8 +135,6 @@ class VideoCamera(object):
 
 			maxindex = int(np.argmax(prediction))
 			show_text[0] = maxindex 
-			#print("===========================================",music_dist[show_text[0]],"===========================================")
-			#print(df1)
 			cv2.putText(image, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 			df1 = music_rec()
 			
@@ -153,8 +147,7 @@ class VideoCamera(object):
 		return jpeg.tobytes(), df1
 
 def music_rec():
-	# print('---------------- Value ------------', music_dist[show_text[0]])
 	df = pd.read_csv(music_dist[show_text[0]])
-	df = df[['Lagu','Artist','spotify_uri']] #df[['Name','Album','Artist']] #Ekspresi,Gendre,Artist,Lagu,Tahun,spotify_uri
+	df = df[['Lagu','Artist','spotify_uri']] 
 	df = df.head(15)
 	return df
