@@ -65,7 +65,7 @@
         var rowHeader = $("<tr></tr>").appendTo(table);
         $("<td></td>").text("Lagu").appendTo(rowHeader);
         $("<td></td>").text("Artist").appendTo(rowHeader);
-        $("<td></td>").text("spotify_uri").appendTo(rowHeader);
+        $("<td></td>").text("Link").appendTo(rowHeader);
         //Get JSON data by calling action method in controller
         $.each(data, function (i, value) {
           //Create new row for each record
@@ -77,7 +77,7 @@
               "<a href='" +
                 value.spotify_uri +
                 "' target='_blank'>" +
-                value.spotify_uri +
+                "listen" +
                 "</a>"
             )
             .appendTo(row);
