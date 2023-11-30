@@ -27,18 +27,22 @@ def more():
     return render_template('more.html')
 
 @app.route('/feature', methods=['GET', 'POST'])
-def index():
+def feature():
     global freeze
+    global df1
     global df_final
     if request.method == 'POST':
-        if request.form.get('button_name') == 'BUTTON_VALUE':
+        # if request.form.get('freeze_button') == 'FREEZE_VALUE':
+        if request.form['freeze_button'] == 'FREEZE_VALUE':
             freeze = not freeze
+            if freeze:
+                df_final = df1
+            print("############# BUTTON FREEZE PRESSED #############")
             pass # do something
         else:
             pass # unknown
     elif request.method == 'GET':
         if freeze:
-            df_final = df1
             return render_template('feature.html', headings=headings, data=df_final)
         else:
             return render_template('feature.html', headings=headings, data=df1)
@@ -60,7 +64,10 @@ def video_feed():
 
 @app.route('/t')
 def gen_table():
-    return df1.to_json(orient='records')
+    if freeze:
+        return df_final.to_json(orient='records')
+    else:
+        return df1.to_json(orient='records')
 
 if __name__ == '__main__':
     app.debug = True
