@@ -23,7 +23,7 @@
       style="background-color: #222831"
     >
       <div class="container">
-        <a class="navbar-brand mb-0 h1" href="#">
+        <a class="navbar-brand mb-0 h1" href="{{ url_for('home') }}">
           <img src="../static/assets/mission.svg" alt="" width="80" />MISSION</a
         >
         <button
@@ -40,15 +40,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home.html"
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{{ url_for('home')}}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="about.html">About</a>
+              <a class="nav-link active" href="{{ url_for('about') }}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="more.html">More...</a>
+              <a class="nav-link active" href="{{ url_for('more') }}"
+                >More...</a
+              >
             </li>
           </ul>
         </div>
@@ -58,7 +63,7 @@
     <section class="row" style="padding-top: 3rem; background-color: #222831">
       <div class="col-6 d-flex flex-column justify-content-center text-center">
         <h3 class="text-light fw-bold">
-          <span style="color: #57b760">Expression</span> of You
+          <span style="color: #57b760">Expression of </span> Yours
         </h3>
         <div
           class="card d-flex flex-column align-items-center ms-auto mt-2"
