@@ -1,88 +1,94 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Emotion Music Recommendation</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Bootstrap CSS -->
     <link
-      type="text/css"
-      href="{{ url_for('static', filename='/css/style.css') }}"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;900&display=swap"
-      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
     />
 
-    <!-- development purpose -->
-    <link rel="stylesheet" href="./../static/css/style.css" />
-    <!-- development purpose -->
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+    <title>MISSION</title>
   </head>
-
   <body>
-    <div id="body">
-      <div>
-        <h1>MISSON (Music by Expression)</h1>
-      </div>
-
-      <div>
-        <h2>Emotion Detector</h2>
-
-        <div>
-          <img
-            class="outer-shadow"
-            id="bg"
-            class="center img-fluid"
-            src="{{ url_for('video_feed') }}"
-          />
+    <nav
+      class="navbar navbar-expand-lg navbar-dark fixed-top"
+      style="background-color: #222831"
+    >
+      <div class="container">
+        <a class="navbar-brand mb-0 h1" href="#">
+          <img src="../static/assets/mission.svg" alt="" width="80" />MISSION</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="more.html">More...</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <div>
-        <h2>Song Recommendations</h2>
+    <section class="row" style="padding-top: 3rem; background-color: #222831">
+      <div class="col-6 d-flex flex-column justify-content-center text-center">
+        <h3 class="text-light fw-bold">
+          <span style="color: #57b760">Expression</span> of You
+        </h3>
+        <div
+          class="card d-flex flex-column align-items-center ms-auto mt-2"
+          style="width: 610px; height: 450px"
+        >
+          <div class="card-body border-5"></div>
+        </div>
       </div>
-
-      <div class="" id="ResultArea"></div>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      // Constantly Update Table
-      setInterval(function () {
-        $.getJSON("/t", function (data) {
-          CreateHtmlTable(data);
-          console.log(data, "DATA");
-        });
-        return false;
-      }, 100);
-
-      function CreateHtmlTable(data) {
-        //Clear result div
-        $("#ResultArea").html("");
-        //Crate table html tag
-        var table = $(
-          "<table class = 'table table-auto' id=DynamicTable></table>"
-        ).appendTo("#ResultArea");
-        var rowHeader = $("<tr></tr>").appendTo(table);
-        $("<td></td>").text("Lagu").appendTo(rowHeader);
-        $("<td></td>").text("Artist").appendTo(rowHeader);
-        $("<td></td>").text("Link").appendTo(rowHeader);
-        //Get JSON data by calling action method in controller
-        $.each(data, function (i, value) {
-          //Create new row for each record
-          var row = $("<tr></tr>").appendTo(table);
-          $("<td></td>").text(value.Lagu).appendTo(row);
-          $("<td></td>").text(value.Artist).appendTo(row);
-          $("<td></td>")
-            .html(
-              "<a href='" +
-                value.spotify_uri +
-                "' target='_blank'>" +
-                "listen" +
-                "</a>"
-            )
-            .appendTo(row);
-        });
-      }
-    </script>
+      <div
+        class="col d-flex flex-column justify-content-center text-center pt-5"
+      >
+        <h3 class="text-light fw-bold pt-5">
+          Recommendation <span style="color: #57b760">for You</span>
+        </h3>
+        <div
+          class="card d-flex flex-column align-items-center mt-2"
+          style="width: 630px; height: 450px"
+        >
+          <div class="card-body border-5"></div>
+        </div>
+        <div class="mt-4 pb-3">
+          <button
+            type="button"
+            class="btn btn-lg text-light fw-bold fs-3"
+            style="width: 40%; background-color: #57b760"
+          >
+            Freeze
+          </button>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
