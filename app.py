@@ -1,13 +1,11 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, Response
 from camera import *
-global freeze
 
 app = Flask(__name__)
 
 headings = ("Name","Album","Artist")
 df1 = music_rec()
 df1 = df1.head(15)
-freeze = False
 
 @app.route('/')
 @app.route('/home')
@@ -26,28 +24,9 @@ def how_to_use():
 def more():
     return render_template('more.html')
 
-@app.route('/feature', methods=['GET', 'POST'])
+@app.route('/feature')
 def feature():
-    global freeze
     global df1
-    global df_final
-    if request.method == 'POST':
-        # if request.form.get('freeze_button') == 'FREEZE_VALUE':
-        if request.form['freeze_button'] == 'FREEZE_VALUE':
-            freeze = not freeze
-            if freeze:
-                df_final = df1
-            print("############# BUTTON FREEZE PRESSED #############")
-            pass # do something
-        else:
-            pass # unknown
-    elif request.method == 'GET':
-        if freeze:
-            return render_template('feature.html', headings=headings, data=df_final)
-        else:
-            return render_template('feature.html', headings=headings, data=df1)
-            
-    # print(df1.to_json(orient='records'))
     return render_template('feature.html', headings=headings, data=df1)
 
 def gen(camera):
@@ -64,10 +43,7 @@ def video_feed():
 
 @app.route('/t')
 def gen_table():
-    if freeze:
-        return df_final.to_json(orient='records')
-    else:
-        return df1.to_json(orient='records')
+    return df1.to_json(orient='records')
 
 if __name__ == '__main__':
     app.debug = True
