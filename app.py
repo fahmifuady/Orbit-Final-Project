@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, render_template, Response
 from camera import *
 
 app = Flask(__name__)
@@ -6,10 +6,28 @@ app = Flask(__name__)
 headings = ("Name","Album","Artist")
 df1 = music_rec()
 df1 = df1.head(15)
+
 @app.route('/')
-def index():
-    print(df1.to_json(orient='records'))
-    return render_template('index.html', headings=headings, data=df1)
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/how-to-use')
+def how_to_use():
+    return render_template('how-to-use.html')
+
+@app.route('/more')
+def more():
+    return render_template('more.html')
+
+@app.route('/feature')
+def feature():
+    global df1
+    return render_template('feature.html', headings=headings, data=df1)
 
 def gen(camera):
     while True:

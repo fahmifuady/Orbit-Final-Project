@@ -23,7 +23,7 @@
       style="background-color: #222831"
     >
       <div class="container">
-        <a class="navbar-brand mb-0 h1" href="#">
+        <a class="navbar-brand mb-0 h1" href="{{ url_for('home') }}">
           <img src="../static/assets/mission.svg" alt="" width="80" />MISSION</a
         >
         <button
@@ -40,15 +40,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home.html"
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{{ url_for('home') }}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="about.html">About</a>
+              <a class="nav-link active" href="{{ url_for('about') }}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="more.html">More...</a>
+              <a class="nav-link active" href="{{ url_for('more') }}"
+                >More...</a
+              >
             </li>
           </ul>
         </div>
@@ -96,7 +101,11 @@
             class="btn btn-lg btn-primary rounded-pill fw-bold fs-3"
             style="background-color: #57b760; border: none; width: 125%"
           >
-          <a href="feature.html" style="text-decoration: none; color: white;">Coba Fitur</a>
+            <a
+              href="{{ url_for('feature')}}"
+              style="text-decoration: none; color: white"
+              >Coba Fitur</a
+            >
           </button>
         </div>
         <div class="d-grid ms-0 gap-2 justify-content-center">
@@ -105,7 +114,11 @@
             class="btn btn-secondary btn-lg mt-4 rounded-pill"
             style="background-color: #393e46; border: none; width: 115%"
           >
-          <a href="cara_pakai.html" style="text-decoration: none; color: white;">Cara Pakai</a>
+            <a
+              href="{{ url_for('how_to_use') }}"
+              style="text-decoration: none; color: white"
+              >Cara Pakai</a
+            >
           </button>
         </div>
       </div>
@@ -161,7 +174,11 @@
             <h1 class="fw-bold text-white" style="font-size: 4rem">
               Our <span style="color: #57b760">Team</span>
             </h1>
-            <img src="../static/assets/Ellipse 3.svg" alt="" style="width: 23%" />
+            <img
+              src="../static/assets/Ellipse 3.svg"
+              alt=""
+              style="width: 23%"
+            />
           </div>
         </div>
         <div class="row mt-5">
