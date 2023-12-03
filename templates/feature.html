@@ -69,12 +69,12 @@
           class="card d-flex flex-column align-items-center ms-auto mt-2"
           style="width: 610px; height: 450px"
         >
-          <div class="card-body border-5">
+          <div class="card-body border-5" style="width: 100%; height: 100%">
             <img
-              class="outer-shadow"
               id="bg"
-              class="center img-fluid"
+              class="center img-fluid rounded"
               src="{{ url_for('video_feed') }}"
+              style="height: 420px"
             />
           </div>
         </div>
@@ -87,9 +87,13 @@
         </h3>
         <div
           class="card d-flex flex-column align-items-center mt-2"
-          style="width: 630px; height: 450px"
+          style="width: 630px; height: 450px; overflow: hidden"
         >
-          <div class="card-body border-5" id="ResultArea"></div>
+          <div
+            class="card-body border-5"
+            id="ResultArea"
+            style="width: 100%; height: 100%; object-fit: cover"
+          ></div>
         </div>
         <div class="mt-4 pb-3">
           <button
