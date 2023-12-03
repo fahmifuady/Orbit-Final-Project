@@ -30,7 +30,9 @@ emotion_model = Sequential([
 
 emotion_model.load_weights('model.h5')
 
-cv2.ocl.setUseOpenCL(False)
+# use gpu if available
+if cv2.ocl.haveOpenCL():
+	cv2.ocl.setUseOpenCL(True)
 
 emotion_dict = {
 	0:"Marah",
