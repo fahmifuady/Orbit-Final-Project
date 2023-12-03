@@ -108,40 +108,75 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript">
-      // Constantly Update Table
-      setInterval(function () {
-        $.getJSON("/t", function (data) {
-          CreateHtmlTable(data);
-          console.log(data, "DATA");
-        });
-        return false;
-      }, 100);
+    <script>
+      $(document).ready(function () {
+        const intervalMilis = 100;
+        var intervalID;
+        var isIntervalRunning;
 
-      function CreateHtmlTable(data) {
-        //Clear result div
-        $("#ResultArea").html("");
-        //Crate table html tag
-        var table = $(
-          "<table class = 'table table-auto' id=DynamicTable></table>"
-        ).appendTo("#ResultArea");
-        var rowHeader = $("<tr></tr>").appendTo(table);
-        $("<td></td>").text("Lagu").appendTo(rowHeader);
-        $("<td></td>").text("Artist").appendTo(rowHeader);
-        $("<td></td>").text("spotify_uri").appendTo(rowHeader);
-        //Get JSON data by calling action method in controller
-        $.each(data, function (i, value) {
-          //Create new row for each record
-          var row = $("<tr></tr>").appendTo(table);
-          $("<td></td>").text(value.Lagu).appendTo(row);
-          $("<td></td>").text(value.Artist).appendTo(row);
-          $("<td></td>")
-            .html(
-              "<a href='" + value.spotify_uri + "' target='_blank'> listen </a>"
-            )
-            .appendTo(row);
+        function runInterval() {
+          // Constantly Update Table
+          updateTable();
+        }
+
+        // Fungsi untuk memperbarui tabel dari data JSON
+        function updateTable() {
+          $.getJSON("/t", function (data) {
+            CreateHtmlTable(data);
+            console.log(data, "DATA");
+          });
+        }
+
+        function CreateHtmlTable(data) {
+          //Clear result div
+          $("#ResultArea").html("");
+          //Crate table html tag
+          var table = $(
+            "<table class = 'table table-auto' id=DynamicTable></table>"
+          ).appendTo("#ResultArea");
+          var rowHeader = $("<tr></tr>").appendTo(table);
+          $("<td></td>").text("Lagu").appendTo(rowHeader);
+          $("<td></td>").text("Artist").appendTo(rowHeader);
+          $("<td></td>").text("spotify_uri").appendTo(rowHeader);
+          //Get JSON data by calling action method in controller
+          $.each(data, function (i, value) {
+            //Create new row for each record
+            var row = $("<tr></tr>").appendTo(table);
+            $("<td></td>").text(value.Lagu).appendTo(row);
+            $("<td></td>").text(value.Artist).appendTo(row);
+            $("<td></td>")
+              .html(
+                "<a href='" +
+                  value.spotify_uri +
+                  "' target='_blank'> listen </a>"
+              )
+              .appendTo(row);
+          });
+        }
+
+        // Mengubah teks tombol dan mengelola interval saat tombol ditekan
+        $("#freezeButton").on("click", function () {
+          if (isIntervalRunning) {
+            clearInterval(intervalID);
+            isIntervalRunning = false;
+            $("#freezeButton").text("Find");
+            console.log("Ambil data dihentikan");
+          } else {
+            intervalID = setInterval(runInterval, intervalMilis);
+            isIntervalRunning = true;
+            $("#freezeButton").text("Freeze");
+            console.log("Ambil data dimulai");
+          }
         });
-      }
+
+        // Panggil updateTable saat dokumen pertama kali dimuat
+        intervalID = setInterval(runInterval, intervalMilis);
+        isIntervalRunning = true;
+        // testing
+        // console.log(
+        //   "\n\n\n kode ini diulang terus padahal ada dipaling bawah script dan ga dimasukkin ke fungsi interval\n\n\n"
+        // );
+      });
     </script>
   </body>
 </html>
