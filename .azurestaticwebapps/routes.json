@@ -1,0 +1,6 @@
+{
+    "routes": [
+      { "route": "/*", "rewrite": "/home.html", "statusCode": 200 }
+    ]
+  }
+  
