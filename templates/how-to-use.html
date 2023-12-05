@@ -23,7 +23,7 @@
       style="background-color: #222831"
     >
       <div class="container">
-        <a class="navbar-brand mb-0 h1" href="#">
+        <a class="navbar-brand mb-0 h1" href="{{ url_for('home') }}">
           <img src="../static/assets/mission.svg" alt="" width="80" />MISSION</a
         >
         <button
@@ -40,13 +40,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{{ url_for('home') }}"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="about.html">About</a>
+              <a class="nav-link active" href="{{ url_for('about') }}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="more.html">More...</a>
+              <a class="nav-link active" href="{{ url_for('more') }}"
+                >More...</a
+              >
             </li>
           </ul>
         </div>
@@ -54,13 +61,18 @@
     </nav>
 
     <!-- Our Team -->
-    <section id="team" style="background-color: #222831; padding-top: 10rem;">
+    <section id="team" style="background-color: #222831; padding-top: 10rem">
       <div class="container">
         <div class="row text-center">
           <div class="col">
-            <h1 class="fw-bold text-white" style="font-size: 4rem"><span style="color: #57b760">Cara</span> Pakai
+            <h1 class="fw-bold text-white" style="font-size: 4rem">
+              <span style="color: #57b760">Cara</span> Pakai
             </h1>
-            <img src="../static/assets/Ellipse 3.svg" alt="" style="width: 35%; padding-bottom: 1rem;" />
+            <img
+              src="../static/assets/Ellipse 3.svg"
+              alt=""
+              style="width: 35%; padding-bottom: 1rem"
+            />
           </div>
         </div>
         <div class="row mt-5">
@@ -73,11 +85,17 @@
                 border-radius: 10px;
               "
             >
-            <div class="border rounded-circle w-25 mt-2" style="background-color: #57b760;">
-              <h1 class="text-light fw-bold text-center">1 </h1>
-            </div>
+              <div
+                class="border rounded-circle w-25 mt-2"
+                style="background-color: #57b760"
+              >
+                <h1 class="text-light fw-bold text-center">1</h1>
+              </div>
               <div class="card-body">
-                <p class="card-text fw-bold" style="color: #EEEEEE; opacity: 75%;">
+                <p
+                  class="card-text fw-bold"
+                  style="color: #eeeeee; opacity: 75%"
+                >
                   Pastikan Kamera Komputer/ Laptop dalam keadaan tidak tertutup
                 </p>
               </div>
@@ -93,11 +111,17 @@
                 border-radius: 10px;
               "
             >
-            <div class="border rounded-circle w-25 mt-2" style="background-color: #57b760;">
-              <h1 class="text-light fw-bold text-center">2</h1>
-            </div>
+              <div
+                class="border rounded-circle w-25 mt-2"
+                style="background-color: #57b760"
+              >
+                <h1 class="text-light fw-bold text-center">2</h1>
+              </div>
               <div class="card-body">
-                <p class="card-text fw-bold" style="color: #EEEEEE; opacity: 75%;">
+                <p
+                  class="card-text fw-bold"
+                  style="color: #eeeeee; opacity: 75%"
+                >
                   Klik “Coba Fitur” Pada Bagian Home Page Website Ini
                 </p>
               </div>
@@ -113,12 +137,19 @@
                 border-radius: 10px;
               "
             >
-            <div class="border rounded-circle w-25 mt-2" style="background-color: #57b760;">
-              <h1 class="text-light fw-bold text-center">3</h1>
-            </div>
+              <div
+                class="border rounded-circle w-25 mt-2"
+                style="background-color: #57b760"
+              >
+                <h1 class="text-light fw-bold text-center">3</h1>
+              </div>
               <div class="card-body">
-                <p class="card-text fw-bold" style="color: #EEEEEE; opacity: 75%;">
-                  Pastikan Kamu Berada Di Tempat Yang Cukup Terang Dan Wajah Dapat Tertangkap Kamera
+                <p
+                  class="card-text fw-bold"
+                  style="color: #eeeeee; opacity: 75%"
+                >
+                  Pastikan Kamu Berada Di Tempat Yang Cukup Terang Dan Wajah
+                  Dapat Tertangkap Kamera
                 </p>
               </div>
             </div>
@@ -134,11 +165,17 @@
                 border-radius: 10px;
               "
             >
-            <div class="border rounded-circle w-25 mt-2" style="background-color: #57b760;">
-              <h1 class="text-light fw-bold text-center">4</h1>
-            </div>
+              <div
+                class="border rounded-circle w-25 mt-2"
+                style="background-color: #57b760"
+              >
+                <h1 class="text-light fw-bold text-center">4</h1>
+              </div>
               <div class="card-body">
-                <p class="card-text fw-bold" style="color: #EEEEEE; opacity: 75%;">
+                <p
+                  class="card-text fw-bold"
+                  style="color: #eeeeee; opacity: 75%"
+                >
                   Cek Apakah Kamera Membaca Emosimu Dengan Jelas Atau Tidak
                 </p>
               </div>
@@ -154,11 +191,17 @@
                 border-radius: 10px;
               "
             >
-            <div class="border rounded-circle w-25 mt-2" style="background-color: #57b760;">
-              <h1 class="text-light fw-bold text-center">5</h1>
-            </div>
+              <div
+                class="border rounded-circle w-25 mt-2"
+                style="background-color: #57b760"
+              >
+                <h1 class="text-light fw-bold text-center">5</h1>
+              </div>
               <div class="card-body">
-                <p class="card-text fw-bold" style="color: #EEEEEE; opacity: 75%;">
+                <p
+                  class="card-text fw-bold"
+                  style="color: #eeeeee; opacity: 75%"
+                >
                   Klik Tombol Pause Untuk Mendapatkan Lagu Rekomendasi
                 </p>
               </div>
@@ -174,12 +217,19 @@
                 border-radius: 10px;
               "
             >
-            <div class="border rounded-circle w-25 mt-2" style="background-color: #57b760;">
-              <h1 class="text-light fw-bold text-center">6</h1>
-            </div>
+              <div
+                class="border rounded-circle w-25 mt-2"
+                style="background-color: #57b760"
+              >
+                <h1 class="text-light fw-bold text-center">6</h1>
+              </div>
               <div class="card-body">
-                <p class="card-text fw-bold" style="color: #EEEEEE; opacity: 75%;">
-                  Selesai, Kamu Tinggal Meng-klik Lagu Yang Direkomendasikan Sistem Kami
+                <p
+                  class="card-text fw-bold"
+                  style="color: #eeeeee; opacity: 75%"
+                >
+                  Selesai, Kamu Tinggal Meng-klik Lagu Yang Direkomendasikan
+                  Sistem Kami
                 </p>
               </div>
             </div>
