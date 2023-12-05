@@ -1,14 +1,18 @@
-.outer-shadow {
-  --outer-shadow: 3px 3px 3px #181818, -3px -3px 3px #252525;
-  box-shadow: var(--outer-shadow);
+body {
+    overflow-x: hidden;
+  }
+  
+  /* Untuk browser selain Firefox */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+.navbar {
+    border-bottom: 1px solid rgba(238, 238, 238, 0.25) ;
 }
 
-.inner-shadow {
-  --inner-shadow: inset 3px 3px 3px #181818, inset -3px -3px 3px #252525;
-  box-shadow: var(--inner-shadow);
-}
-
-tr td {
-  background-color: #181818 !important;
-  color: aliceblue;
+section {
+    border-bottom: 1px solid rgba(238, 238, 238, 0.25);
+    padding-bottom: 10%;
+    padding-top: 3rem;
 }

@@ -1,0 +1,15 @@
+{
+  "name": "mission",
+  "version": "1.0.0",
+  "description": "music recommendation based on facial expression",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./static/css/tailwind.css -o ./static/css/style.css --watch"
+  },
+  "author": "Fahmi Fuady",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}
