@@ -15,16 +15,21 @@ The emotion recognition model is trained on FER 2013 dataset. It can detect 7 em
 
 # Running the app:
 
-Environment:
+Setting environment:
 
-- Make sure <a href='https://www.anaconda.com/download'> Anaconda </a> installed on your system.
-- Run <code>conda env create -f P310.yaml</code> to install all dependencies.
-- Run <code>conda activate P310</code> to activate app environment.
+1. Make sure [Anaconda](https://www.anaconda.com/download) installed on your system.
+2. Download [here](https://github.com/fahmifuady/Orbit-Final-Project/releases/tag/v0.1.0-alpha) and extract it. or you can clone this repository by
+   > <code>git clone https://github.com/fahmifuady/Orbit-Final-Project.git</code>
+3. Install all required dependencies.
+   > <code>conda env create -f P310.yaml</code>
+4. Activate MISSION environment.
+   > <code>conda activate P310</code>
+5. Activate MISSION web app
+   > <code>python app.py</code>
 
-Flask:
+If you already have an environment setup, you can run it straight away:
 
-- Clone this repository <code>git clone https://github.com/fahmifuady/Orbit-Final-Project.git </code>
-- Run <code>python app.py</code> and give camera permission if asked.
+> <code>python app.py</code>
 
 # Tech Stack:
 
@@ -37,7 +42,7 @@ Flask:
 
 # Dataset:
 
-The dataset used for this project is the famous FER2013 dataset. Models trained on this dataset can classify 7 emotions. The dataset can be found <a href = "https://www.kaggle.com/msambare/fer2013">here</a>.
+The dataset used for this project is the famous FER2013 dataset. Models trained on this dataset can classify 7 emotions. The dataset can be found [here](https://www.kaggle.com/msambare/fer2013).
 
 Note that the dataset is highly imbalanced with happy class having maxiumum representation. This might be a factor resulting low accuracy after training.
 
@@ -57,7 +62,7 @@ Note:- Tried Implementing various other models like VGG16 but accuracy was far t
 # Image Processing and Training:
 
 - The images were normalised, resized to (48,48) and converted to grayscale in batches of 64 with help of 'ImageDataGenerator' in Keras API.
-- Training took around 30 minutes on <a href="https://colab.research.google.com/"> Google Collab</a> for 50 epoch with an accuracy of ~75 %
+- Training took around 30 minutes on [Google Collab](https://colab.research.google.com/) for 50 epoch with an accuracy of ~75 %
 
 # Current condition:
 
