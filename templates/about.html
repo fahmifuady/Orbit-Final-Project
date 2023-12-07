@@ -23,7 +23,7 @@
       style="background-color: #222831"
     >
       <div class="container">
-        <a class="navbar-brand mb-0 h1" href="{{ url_for('home') }}">
+        <a class="navbar-brand mb-0 h1" href="/templates/home.html">
           <img src="../static/assets/mission.svg" alt="" width="80" />MISSION</a
         >
         <button
@@ -43,17 +43,15 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{ url_for('home') }}"
+                href="/templates/home.html"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+              <a class="nav-link active" href="/templates/about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('more') }}"
-                >More...</a
-              >
+              <a class="nav-link active" href="/templates/more.html">More...</a>
             </li>
           </ul>
         </div>
@@ -66,7 +64,7 @@
       class="jumbotron jumbotron-fluid text-center"
       style="background-color: #222831; height: 50rem"
     >
-      <div class="container">
+      <div class="container w-75 w-75">
         <div
           style="
             height: 20rem;
@@ -81,28 +79,91 @@
             style="color: white; position: relative; top: 45%"
           >
             <span style="color: #57b760">"WHY"</span> Searching is Stressful?
+            <span style="color: #57b760">"WHY"</span> Searching is Stressful?
           </h1>
         </div>
         <p class="fw-bold pt-5" style="color: white; font-size: large">
-          Mood lagi down?
+          Mood lagi down? Mood lagi down?
         </p>
-        <p class="pt-0" style="color: white; font-size: large">
+        <p class="pt-2" style="color: white; font-size: large">
           Gak masalah, cari musik yang pas aja! Kadang, jawaban untuk semua ada
           di dalam lirik dan melodi yang kamu temukan. Jadi, mari bersama-sama
           menciptakan playlist kebahagiaan dan hilangkan stres dengan alunan
-          musik yang enak didengar. Cari musik itu seperti berburu kebahagiaan
-          dalam bentuk nada. Saat kamu menemukan lagu yang pas, rasanya seperti
-          menemukan harta karun emosional. Jadi, yuk terus eksplorasi musik dan
-          isi harimu dengan ritme yang menggembirakan!
+          musik yang enak didengar.
         </p>
-        <p class="fw-bold pt-3" style="color: white; font-size: large">
+        <p class="pt-2" style="color: white; font-size: large">
+          Cari musik itu seperti berburu kebahagiaan dalam bentuk nada. Saat
+          kamu menemukan lagu yang pas, rasanya seperti menemukan harta karun
+          emosional. Jadi, yuk terus eksplorasi musik dan isi harimu dengan
+          ritme yang menggembirakan!
+        </p>
+        <p class="pt-2 fw-bold" style="color: white; font-size: large">
           Soo, ayoo coba fitur terbaru dari kami. Dengan menyalakan kamera, kamu
           akan mendapat berbagai rekomendasi musik sesuai dengan suasana hatimu!
         </p>
       </div>
+          
     </section>
 
     <!-- end of description -->
+
+    <!-- Visi Misi -->
+
+    <section
+      class="jumbotron jumbotron-fluid text-center"
+      style="background-color: #222831; height: 60rem"
+    >
+      <div class="container py-5 w-75">
+        <div>
+          <h1
+            class="display-4 fw-bold"
+            style="color: white; position: relative; top: 45%"
+          >
+            VISI
+          </h1>
+          <img
+            src="../static/assets/ellipse.svg"
+            alt=""
+            style="width: 13%; position: relative; top: 44%"
+          />
+        </div>
+        <p class="fw-bold pt-5" style="color: white; font-size: large">
+          Menjadi aplikasi musik terdepan yang dapat menghasilkan lagu sesuai
+          dengan ekpresi pengguna
+        </p>
+        <p class="pt-2 fw-bold" style="color: white; font-size: large">
+          Mission menjadikan tempat di mana pengguna bisa bebas berekspresi
+          tanpa batas dan bisa menikmati karya seni yang membuat kita bisa
+          mengerti dan merasakan perasaan saat ini.
+        </p>
+      </div>
+      <div class="container pt-5 w-75">
+        <div>
+          <h1
+            class="display-4 fw-bold"
+            style="color: white; position: relative; top: 45%"
+          >
+            MISI
+          </h1>
+          <img
+            src="../static/assets/ellipse.svg"
+            alt=""
+            style="width: 13%; position: relative; top: 44%"
+          />
+        </div>
+        <p class="fw-bold pt-5" style="color: white; font-size: large">
+          Mengembangkan teknologi kecerdasan buatan yang dapat mengenali emosi,
+          suasana hati dan kepribadian pengguna melalui analisis wajah
+        </p>
+        <p class="pt-2 fw-bold" style="color: white; font-size: large">
+          Membuat UI aplikasi yang menarik dan mudah digunakan
+        </p>
+        <p class="pt-2 fw-bold" style="color: white; font-size: large">
+          Meningkatkan kualitas dan kepuasan pengguna dengan memberikan
+          rekomendasi musik yang personal dan relevan
+        </p>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer></footer>
