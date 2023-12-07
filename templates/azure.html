@@ -24,7 +24,7 @@
       style="background-color: #222831"
     >
       <div class="container">
-        <a class="navbar-brand mb-0 h1" href="{{ url_for('home') }}">
+        <a class="navbar-brand mb-0 h1" href="/templates/home.html">
           <img src="../static/assets/mission.svg" alt="" width="80" />MISSION</a
         >
         <button
@@ -44,17 +44,15 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{ url_for('home') }}"
+                href="/templates/home.html"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+              <a class="nav-link active" href="/templates/about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('more') }}"
-                >More...</a
-              >
+              <a class="nav-link active" href="/templates/more.html">More...</a>
             </li>
           </ul>
         </div>
@@ -65,7 +63,7 @@
 
     <section
       class="jumbotron jumbotron-fluid text-center pt-3"
-      style="background-color: #222831; height: 49rem;"
+      style="background-color: #222831; height: 49rem"
     >
       <div class="container w-75 mt-3">
         <div
@@ -88,34 +86,35 @@
           Kami minta maaf...
         </p>
         <p class="pt-2" style="color: white; font-size: large">
-            Saat ini, kami tengah menghadapi kendala dalam mendeploy proyek mission ini di cloud. 
-            Meskipun demikian, tim kami sedang aktif mencari solusi agar dapat segera melakukannya. 
-            Meskipun belum dapat diakses secara online, kami ingin memberitahu Anda bahwa fitur mission 
-            masih dapat diuji coba secara lokal menggunakan komputer pribadi masing-masing. Jadi, jangan khawatir! 
-            Untuk mencoba fitur mission, silakan unduh proyek mission kami melalui GitHub ya.
+          Saat ini, kami tengah menghadapi kendala dalam mendeploy proyek
+          mission ini di cloud. Meskipun demikian, tim kami sedang aktif mencari
+          solusi agar dapat segera melakukannya. Meskipun belum dapat diakses
+          secara online, kami ingin memberitahu Anda bahwa fitur mission masih
+          dapat diuji coba secara lokal menggunakan komputer pribadi
+          masing-masing. Jadi, jangan khawatir! Untuk mencoba fitur mission,
+          silakan unduh proyek mission kami melalui GitHub ya.
         </p>
 
         <div class="pb-5 d-grid gap-2 justify-content-center">
-            <button
-              type="button"
-              class="btn btn-secondary btn-lg mt-4 rounded-pill fw-bold"
-              style="background-color: #393e46; border: none; width: 115%"
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg mt-4 rounded-pill fw-bold"
+            style="background-color: #393e46; border: none; width: 115%"
+          >
+            <a
+              href="https://github.com/fahmifuady/Orbit-Final-Project/tree/main"
+              style="text-decoration: none; color: white"
+              >Go to GitHub</a
             >
-              <a
-                href="https://github.com/fahmifuady/Orbit-Final-Project/tree/main"
-                style="text-decoration: none; color: white"
-                >Go to GitHub</a
-              >
-            </button>
+          </button>
         </div>
-        
-        <p class="pt-0" style="color: white; font-size: large">
-            Apakah Anda seorang pengembang berpengalaman? atau sedang dalam proses belajar? Jika Anda tertarik, 
-            Anda bisa berkontribusi pada proyek MISSION ini.
-        </p>
 
+        <p class="pt-0" style="color: white; font-size: large">
+          Apakah Anda seorang pengembang berpengalaman? atau sedang dalam proses
+          belajar? Jika Anda tertarik, Anda bisa berkontribusi pada proyek
+          MISSION ini.
+        </p>
       </div>
-    
     </section>
 
     <!-- end of description -->
