@@ -62,7 +62,7 @@ Note:- Tried Implementing various other models like VGG16 but accuracy was far t
 # Image Processing and Training:
 
 - The images were normalised, resized to (48,48) and converted to grayscale in batches of 64 with help of 'ImageDataGenerator' in Keras API.
-- Training took around 30 minutes on [Google Collab](https://colab.research.google.com/) for 50 epoch with an accuracy of ~75 %
+- Training took around 30 minutes on [Google Collab](https://colab.research.google.com/drive/1r6KtOvwgR_akctPbuCxgx_VNovCUhZz9?usp=sharing) for 50 epoch with an accuracy of ~75 %
 
 # Current condition:
 
